@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		994834DE1FE9108400EE1BD3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994834DD1FE9108400EE1BD3 /* LoginViewController.m */; };
+		994834E11FE912D200EE1BD3 /* PrepareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994834E01FE912D200EE1BD3 /* PrepareViewController.m */; };
+		994834E41FE912DF00EE1BD3 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994834E31FE912DF00EE1BD3 /* LiveViewController.m */; };
 		99BEDCE61FE8F7760066294D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDCE51FE8F7760066294D /* AppDelegate.m */; };
-		99BEDCE91FE8F7760066294D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDCE81FE8F7760066294D /* ViewController.m */; };
 		99BEDCEC1FE8F7760066294D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99BEDCEA1FE8F7760066294D /* Main.storyboard */; };
 		99BEDCEE1FE8F7760066294D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99BEDCED1FE8F7760066294D /* Assets.xcassets */; };
 		99BEDCF11FE8F7760066294D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99BEDCEF1FE8F7760066294D /* LaunchScreen.storyboard */; };
 		99BEDCF41FE8F7760066294D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDCF31FE8F7760066294D /* main.m */; };
 		99BEDCFE1FE8F7760066294D /* MiniLiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDCFD1FE8F7760066294D /* MiniLiveTests.m */; };
 		99BEDD091FE8F7770066294D /* MiniLiveUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDD081FE8F7770066294D /* MiniLiveUITests.m */; };
+		99BEDD191FE8F8400066294D /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDD181FE8F8400066294D /* MyNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +38,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		994834DC1FE9108400EE1BD3 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		994834DD1FE9108400EE1BD3 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		994834DF1FE912D200EE1BD3 /* PrepareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrepareViewController.h; sourceTree = "<group>"; };
+		994834E01FE912D200EE1BD3 /* PrepareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrepareViewController.m; sourceTree = "<group>"; };
+		994834E21FE912DF00EE1BD3 /* LiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveViewController.h; sourceTree = "<group>"; };
+		994834E31FE912DF00EE1BD3 /* LiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveViewController.m; sourceTree = "<group>"; };
 		99BEDCE11FE8F7760066294D /* MiniLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99BEDCE41FE8F7760066294D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		99BEDCE51FE8F7760066294D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		99BEDCE71FE8F7760066294D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		99BEDCE81FE8F7760066294D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		99BEDCEB1FE8F7760066294D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		99BEDCED1FE8F7760066294D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99BEDCF01FE8F7760066294D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +58,8 @@
 		99BEDD041FE8F7770066294D /* MiniLiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniLiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99BEDD081FE8F7770066294D /* MiniLiveUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiniLiveUITests.m; sourceTree = "<group>"; };
 		99BEDD0A1FE8F7770066294D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99BEDD171FE8F8400066294D /* MyNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
+		99BEDD181FE8F8400066294D /* MyNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +110,9 @@
 		99BEDCE31FE8F7760066294D /* MiniLive */ = {
 			isa = PBXGroup;
 			children = (
+				99BEDD161FE8F7E00066294D /* ViewController */,
 				99BEDCE41FE8F7760066294D /* AppDelegate.h */,
 				99BEDCE51FE8F7760066294D /* AppDelegate.m */,
-				99BEDCE71FE8F7760066294D /* ViewController.h */,
-				99BEDCE81FE8F7760066294D /* ViewController.m */,
 				99BEDCEA1FE8F7760066294D /* Main.storyboard */,
 				99BEDCED1FE8F7760066294D /* Assets.xcassets */,
 				99BEDCEF1FE8F7760066294D /* LaunchScreen.storyboard */,
@@ -130,6 +138,21 @@
 				99BEDD0A1FE8F7770066294D /* Info.plist */,
 			);
 			path = MiniLiveUITests;
+			sourceTree = "<group>";
+		};
+		99BEDD161FE8F7E00066294D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				99BEDD171FE8F8400066294D /* MyNavigationController.h */,
+				99BEDD181FE8F8400066294D /* MyNavigationController.m */,
+				994834DC1FE9108400EE1BD3 /* LoginViewController.h */,
+				994834DD1FE9108400EE1BD3 /* LoginViewController.m */,
+				994834DF1FE912D200EE1BD3 /* PrepareViewController.h */,
+				994834E01FE912D200EE1BD3 /* PrepareViewController.m */,
+				994834E21FE912DF00EE1BD3 /* LiveViewController.h */,
+				994834E31FE912DF00EE1BD3 /* LiveViewController.m */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +288,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99BEDCE91FE8F7760066294D /* ViewController.m in Sources */,
+				994834E41FE912DF00EE1BD3 /* LiveViewController.m in Sources */,
+				994834DE1FE9108400EE1BD3 /* LoginViewController.m in Sources */,
+				994834E11FE912D200EE1BD3 /* PrepareViewController.m in Sources */,
+				99BEDD191FE8F8400066294D /* MyNavigationController.m in Sources */,
 				99BEDCF41FE8F7760066294D /* main.m in Sources */,
 				99BEDCE61FE8F7760066294D /* AppDelegate.m in Sources */,
 			);
@@ -433,6 +459,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MJHAJ527MY;
 				INFOPLIST_FILE = MiniLive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.hehe.MiniLive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,6 +474,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MJHAJ527MY;
 				INFOPLIST_FILE = MiniLive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.hehe.MiniLive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
