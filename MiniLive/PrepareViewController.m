@@ -19,7 +19,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+    //[[ for debug
+    MLWebApiInvoker *api = [MLWebApiInvoker shareInstance];
+    MLSession   *session = [MLSession shareInstance];
+    
+    NSString *roomID = [MLSession shareInstance].roomID;
+    if(roomID && roomID.length > 0)
+    {
+        [api getRoom:roomID token:session.token finish:^(BOOL success, MLResponse *response, NSString *error) {
+            //
+        }];
+    }
+    //]]
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent

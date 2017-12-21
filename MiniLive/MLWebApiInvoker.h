@@ -20,7 +20,7 @@ typedef void (^FinishBlock)(BOOL success, MLResponse* response, NSString *error)
 -(void) login:(NSString*)userID password:(NSString*)password finish:(FinishBlock)finish;
 -(void) logout:(NSString*)token finish:(FinishBlock)finish;
 -(void) getRoomList:(NSString*)token finish:(FinishBlock)finish;
--(void) room:(NSString*)roomID token:(NSString*)token finish:(FinishBlock)finish;
+-(void) getRoom:(NSString*)roomID token:(NSString*)token finish:(FinishBlock)finish;
 -(void) start:(NSString*)roomID token:(NSString*)token finish:(FinishBlock)finish;
 -(void) stop:(NSString*)roomID token:(NSString*)token finish:(FinishBlock)finish;
 -(void) alive:(NSString*)roomID token:(NSString*)token finish:(FinishBlock)finish;
