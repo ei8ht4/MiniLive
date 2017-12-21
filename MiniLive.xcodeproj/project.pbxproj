@@ -26,7 +26,6 @@
 		9948B6D31FEA1A2000ABC54D /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9948B6C91FEA1A2000ABC54D /* UIRefreshControl+AFNetworking.m */; };
 		9948B6D41FEA1A2000ABC54D /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9948B6CB1FEA1A2000ABC54D /* UIWebView+AFNetworking.m */; };
 		9948B6D91FEA334200ABC54D /* MLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 9948B6D81FEA334200ABC54D /* MLSession.m */; };
-		9948B6DC1FEA34C600ABC54D /* MLRESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9948B6DB1FEA34C600ABC54D /* MLRESTClient.m */; };
 		9948B6E01FEA547C00ABC54D /* MLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9948B6DF1FEA547C00ABC54D /* MLResponse.m */; };
 		9948B6E31FEA5E6E00ABC54D /* MLWebApiInvoker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9948B6E21FEA5E6E00ABC54D /* MLWebApiInvoker.m */; };
 		99BEDCE61FE8F7760066294D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDCE51FE8F7760066294D /* AppDelegate.m */; };
@@ -37,6 +36,7 @@
 		99BEDCFE1FE8F7760066294D /* MiniLiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDCFD1FE8F7760066294D /* MiniLiveTests.m */; };
 		99BEDD091FE8F7770066294D /* MiniLiveUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDD081FE8F7770066294D /* MiniLiveUITests.m */; };
 		99BEDD191FE8F8400066294D /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDD181FE8F8400066294D /* MyNavigationController.m */; };
+		99E71C641FEB5E7800374CB4 /* MLToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E71C631FEB5E7800374CB4 /* MLToast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,8 +98,6 @@
 		9948B6CB1FEA1A2000ABC54D /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		9948B6D71FEA334200ABC54D /* MLSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLSession.h; sourceTree = "<group>"; };
 		9948B6D81FEA334200ABC54D /* MLSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLSession.m; sourceTree = "<group>"; };
-		9948B6DA1FEA34C600ABC54D /* MLRESTClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLRESTClient.h; sourceTree = "<group>"; };
-		9948B6DB1FEA34C600ABC54D /* MLRESTClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLRESTClient.m; sourceTree = "<group>"; };
 		9948B6DD1FEA4DCB00ABC54D /* COMMON_MACRO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COMMON_MACRO.h; sourceTree = "<group>"; };
 		9948B6DE1FEA547C00ABC54D /* MLResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLResponse.h; sourceTree = "<group>"; };
 		9948B6DF1FEA547C00ABC54D /* MLResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLResponse.m; sourceTree = "<group>"; };
@@ -121,6 +119,8 @@
 		99BEDD0A1FE8F7770066294D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99BEDD171FE8F8400066294D /* MyNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
 		99BEDD181FE8F8400066294D /* MyNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
+		99E71C621FEB5E7800374CB4 /* MLToast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLToast.h; sourceTree = "<group>"; };
+		99E71C631FEB5E7800374CB4 /* MLToast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLToast.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,12 +239,12 @@
 				99BEDCF31FE8F7760066294D /* main.m */,
 				9948B6D71FEA334200ABC54D /* MLSession.h */,
 				9948B6D81FEA334200ABC54D /* MLSession.m */,
-				9948B6DA1FEA34C600ABC54D /* MLRESTClient.h */,
-				9948B6DB1FEA34C600ABC54D /* MLRESTClient.m */,
 				9948B6DE1FEA547C00ABC54D /* MLResponse.h */,
 				9948B6DF1FEA547C00ABC54D /* MLResponse.m */,
 				9948B6E11FEA5E6E00ABC54D /* MLWebApiInvoker.h */,
 				9948B6E21FEA5E6E00ABC54D /* MLWebApiInvoker.m */,
+				99E71C621FEB5E7800374CB4 /* MLToast.h */,
+				99E71C631FEB5E7800374CB4 /* MLToast.m */,
 			);
 			path = MiniLive;
 			sourceTree = "<group>";
@@ -415,7 +415,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9948B6DC1FEA34C600ABC54D /* MLRESTClient.m in Sources */,
 				9948B6D21FEA1A2000ABC54D /* UIProgressView+AFNetworking.m in Sources */,
 				9948B6D01FEA1A2000ABC54D /* UIButton+AFNetworking.m in Sources */,
 				9948B6D31FEA1A2000ABC54D /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -436,6 +435,7 @@
 				9948B6B61FEA19F500ABC54D /* AFURLSessionManager.m in Sources */,
 				9948B6CD1FEA1A2000ABC54D /* AFImageDownloader.m in Sources */,
 				9948B6B21FEA19F500ABC54D /* AFNetworkReachabilityManager.m in Sources */,
+				99E71C641FEB5E7800374CB4 /* MLToast.m in Sources */,
 				9948B6D41FEA1A2000ABC54D /* UIWebView+AFNetworking.m in Sources */,
 				99BEDCE61FE8F7760066294D /* AppDelegate.m in Sources */,
 				9948B6CF1FEA1A2000ABC54D /* UIActivityIndicatorView+AFNetworking.m in Sources */,

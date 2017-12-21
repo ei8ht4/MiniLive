@@ -9,25 +9,52 @@
 #import "LoginViewController.h"
 #import "COMMON_MACRO.h"
 
-//[[ for debug
-#import "MLRESTClient.h"
-//]]
+#import "MLWebApiInvoker.h"
+#import "MLResponse.h"
+#import "MLToast.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *txtUser;
 @property (weak, nonatomic) IBOutlet UITextField *txtPasswd;
+@property (weak, nonatomic) IBOutlet UIButton *btnLogin;
 
 @end
 
 @implementation LoginViewController
+
+// 处理密码
+-(NSString*) processPassword:(NSString*)password
+{
+    if(!password || password.length == 0)
+        return @"";
+    NSData *data = [password dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *base64String = [data base64EncodedStringWithOptions:0];
+    
+    NSMutableString *result = [[NSMutableString alloc] init];
+    
+    NSUInteger nLen = base64String.length;
+    unichar c;
+    for(NSUInteger i = 0; i < nLen; i += 2)
+    {
+        if(i + 1 < nLen)
+        {
+            c = [base64String characterAtIndex:i + 1];
+            [result appendString:[[NSString alloc] initWithCharacters:&c length:1]];
+            c = [base64String characterAtIndex:i];
+            [result appendString:[[NSString alloc] initWithCharacters:&c length:1]];
+        }
+    }
+    
+    return result;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     //[[ for debug
-    self.txtUser.text = @"13880793994";
-    self.txtPasswd.text = @"11";
+    self.txtUser.text = @"13980577542";
+    self.txtPasswd.text = @"";
     //]]
 }
 
@@ -36,25 +63,42 @@
     // Dispose of any resources that can be recreated.
 }
 
+// 登录
 - (IBAction)LoginBtnPressed:(UIButton *)sender {
     
-    MLRESTClient *restClient = [MLRESTClient shareInstance];
-    [restClient requestWithURL:@"http://120.76.128.133:680/iBokerApi/minilive/login?mobile=13980577542&password="
-                        method:POST parameters:nil
-                       success:^(id responseObject) {
-                           WEAK_SELF;
-                           dispatch_queue_t queue = dispatch_get_main_queue();
-                           dispatch_async(queue, ^{
-                               [weakSelf loginResult];
-                           });
-                           NSLog(@"登录请求成功");
-                       }
-                       failure:^(NSError *error) {
-                           NSLog(@"登录请求失败");
-                       }
-     ];
+    [self.btnLogin setTitle:@"登录中..." forState:UIControlStateNormal];
+    
+    NSString *userID = self.txtUser.text;
+    NSString *passwd = [self processPassword:self.txtPasswd.text];
+    
+    MLWebApiInvoker *api = [MLWebApiInvoker shareInstance];
+    
+    [api login:userID password:passwd finish:^(BOOL success, MLResponse *reponse, NSString *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            WEAK_SELF;
+            
+            [weakSelf.btnLogin setTitle:@"登录" forState:UIControlStateNormal];
+            
+            if(success)
+            {
+                if(reponse.status)  // 登录成功
+                {
+                    [weakSelf performSegueWithIdentifier:@"login2prepare" sender:weakSelf];
+                }
+                else
+                {
+                    [MLToast toast:reponse.message withTitle:@"登录失败" viewController:weakSelf];
+                }
+            }
+            else
+            {
+                [MLToast toast:error withTitle:@"登录请求失败" viewController:weakSelf];
+            }
+        });
+    }];
 }
 
+// 注册
 - (IBAction)RegisterBtnPressed:(UIButton *)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"注册" message:@"请关注我们的微信公众号[直播起]中注册" preferredStyle:UIAlertControllerStyleAlert];
     
@@ -65,14 +109,12 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+// 点击空白处
 - (IBAction)onTap:(UITapGestureRecognizer *)sender {
     [self.txtUser resignFirstResponder];
     [self.txtPasswd resignFirstResponder];
 }
 
-- (void)loginResult {
-    NSLog(@"Login Result");
-}
 /*
  #pragma mark - Navigation
  

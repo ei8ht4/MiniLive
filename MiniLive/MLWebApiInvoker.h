@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MLResponse.h"
 
+@class MLResponse;
 typedef void (^FinishBlock)(BOOL success, MLResponse* reponse, NSString *error);
-#define FINISH_BLOCK finish:(FinishBlock)finish
 
 @interface MLWebApiInvoker : NSObject
 +(instancetype) shareInstance;
@@ -18,11 +17,11 @@ typedef void (^FinishBlock)(BOOL success, MLResponse* reponse, NSString *error);
 @property (nonatomic, strong) NSString* baseUrl;
 @property (nonatomic, strong) NSString* lastError;
 
--(void) login:(NSString*)userID password:(NSString*)password FINISH_BLOCK;
--(void) logout:(NSString*)token FINISH_BLOCK;
--(void) getRoomList:(NSString*)token FINISH_BLOCK;
--(void) room:(NSString*)roomID token:(NSString*)token FINISH_BLOCK;
--(void) start:(NSString*)roomID token:(NSString*)token FINISH_BLOCK;
--(void) stop:(NSString*)roomID token:(NSString*)token FINISH_BLOCK;
--(void) alive:(NSString*)roomID token:(NSString*)token FINISH_BLOCK;
+-(void) login:(NSString*)userID password:(NSString*)password finish:(FinishBlock)finish;
+-(void) logout:(NSString*)token finish:(FinishBlock)finish;
+-(void) getRoomList:(NSString*)token finish:(FinishBlock)finish;
+-(void) room:(NSString*)roomID token:(NSString*)token finish:(FinishBlock)finish;
+-(void) start:(NSString*)roomID token:(NSString*)token finish:(FinishBlock)finish;
+-(void) stop:(NSString*)roomID token:(NSString*)token finish:(FinishBlock)finish;
+-(void) alive:(NSString*)roomID token:(NSString*)token finish:(FinishBlock)finish;
 @end

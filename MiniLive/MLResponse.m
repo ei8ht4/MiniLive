@@ -33,7 +33,7 @@ if(!self.status)            \
         return NO;
     }
     
-    self.status = statusVal;
+    self.status = [statusVal boolValue];
     self.message = messageVal;
     
     return YES;

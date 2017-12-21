@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MLWebApiInvoker.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [MLWebApiInvoker shareInstance].baseUrl = @"http://120.76.128.133:680";
     return YES;
 }
 
