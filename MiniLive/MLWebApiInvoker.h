@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class MLResponse;
-typedef void (^FinishBlock)(BOOL success, MLResponse* reponse, NSString *error);
+typedef void (^FinishBlock)(BOOL success, MLResponse* response, NSString *error);
 
 @interface MLWebApiInvoker : NSObject
 +(instancetype) shareInstance;

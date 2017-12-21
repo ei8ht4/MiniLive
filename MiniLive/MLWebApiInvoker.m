@@ -89,6 +89,9 @@ SINGLETON_IMPLEMETATION(MLWebApiInvoker)
 #pragma mark 私有方法
 -(void) handleResponse:(id)responseObject ofType:(NSString*)type withError:(NSString*)error finish:(FinishBlock)finish
 {
+    if(!finish)
+        return;
+    
     if(!responseObject) // 请求失败
     {
         finish(false, nil, error);

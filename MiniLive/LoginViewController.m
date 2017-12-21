@@ -12,6 +12,7 @@
 #import "MLWebApiInvoker.h"
 #import "MLResponse.h"
 #import "MLToast.h"
+#import "MLSession.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *txtUser;
@@ -73,21 +74,30 @@
     
     MLWebApiInvoker *api = [MLWebApiInvoker shareInstance];
     
-    [api login:userID password:passwd finish:^(BOOL success, MLResponse *reponse, NSString *error) {
+    [api login:userID
+      password:passwd
+        finish:^(BOOL success, MLResponse *response, NSString *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             WEAK_SELF;
             
             [weakSelf.btnLogin setTitle:@"登录" forState:UIControlStateNormal];
             
+            [[MLSession shareInstance] clear];
+            
             if(success)
             {
-                if(reponse.status)  // 登录成功
+                if(response.status)  // 登录成功
                 {
+                    __weak MLLoginResponse *loginResponse = (MLLoginResponse*)response;
+                    [MLSession shareInstance].token = loginResponse.token;
+                    [MLSession shareInstance].userID = loginResponse.id;
+                    [MLSession shareInstance].roomID = loginResponse.roomID;
+                    
                     [weakSelf performSegueWithIdentifier:@"login2prepare" sender:weakSelf];
                 }
                 else
                 {
-                    [MLToast toast:reponse.message withTitle:@"登录失败" viewController:weakSelf];
+                    [MLToast toast:response.message withTitle:@"登录失败" viewController:weakSelf];
                 }
             }
             else

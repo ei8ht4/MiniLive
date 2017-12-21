@@ -7,6 +7,8 @@
 //
 
 #import "PrepareViewController.h"
+#import "MLWebApiInvoker.h"
+#import "MLSession.h"
 
 @interface PrepareViewController ()
 
@@ -17,11 +19,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //self.navigationController.interactivePopGestureRecognizer.delegate = self;
+}
+
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+    [super willMoveToParentViewController:parent];
+    
+    if(!parent)
+    {
+        [[MLWebApiInvoker shareInstance] logout:[MLSession shareInstance].token finish:^(BOOL success, MLResponse *response, NSString *error) {
+            [[MLSession shareInstance] clear];
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)btnLivePressed:(UIButton *)sender {
+    UIViewController *liveVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LiveViewController"];
+    [self presentViewController:liveVC animated:YES completion:nil];
 }
 
 
