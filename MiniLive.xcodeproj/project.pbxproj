@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		992C5FA01FEBF85A00538DB8 /* SelectRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992C5F9F1FEBF85A00538DB8 /* SelectRoomViewController.m */; };
 		994834DE1FE9108400EE1BD3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994834DD1FE9108400EE1BD3 /* LoginViewController.m */; };
 		994834E11FE912D200EE1BD3 /* PrepareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994834E01FE912D200EE1BD3 /* PrepareViewController.m */; };
 		994834E41FE912DF00EE1BD3 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994834E31FE912DF00EE1BD3 /* LiveViewController.m */; };
@@ -37,6 +38,7 @@
 		99BEDD091FE8F7770066294D /* MiniLiveUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDD081FE8F7770066294D /* MiniLiveUITests.m */; };
 		99BEDD191FE8F8400066294D /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDD181FE8F8400066294D /* MyNavigationController.m */; };
 		99E71C641FEB5E7800374CB4 /* MLToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E71C631FEB5E7800374CB4 /* MLToast.m */; };
+		99F350E71FEBF478002965C0 /* CodecCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F350E61FEBF478002965C0 /* CodecCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		992C5F9E1FEBF85A00538DB8 /* SelectRoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectRoomViewController.h; sourceTree = "<group>"; };
+		992C5F9F1FEBF85A00538DB8 /* SelectRoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectRoomViewController.m; sourceTree = "<group>"; };
 		994834DC1FE9108400EE1BD3 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		994834DD1FE9108400EE1BD3 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		994834DF1FE912D200EE1BD3 /* PrepareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrepareViewController.h; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 		99BEDD181FE8F8400066294D /* MyNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
 		99E71C621FEB5E7800374CB4 /* MLToast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLToast.h; sourceTree = "<group>"; };
 		99E71C631FEB5E7800374CB4 /* MLToast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLToast.m; sourceTree = "<group>"; };
+		99F350E51FEBF478002965C0 /* CodecCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodecCell.h; sourceTree = "<group>"; };
+		99F350E61FEBF478002965C0 /* CodecCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodecCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,13 +236,6 @@
 				9948B6D51FEA1AAE00ABC54D /* 3rd_library */,
 				99BEDD161FE8F7E00066294D /* ViewController */,
 				9948B6DD1FEA4DCB00ABC54D /* COMMON_MACRO.h */,
-				99BEDCE41FE8F7760066294D /* AppDelegate.h */,
-				99BEDCE51FE8F7760066294D /* AppDelegate.m */,
-				99BEDCEA1FE8F7760066294D /* Main.storyboard */,
-				99BEDCED1FE8F7760066294D /* Assets.xcassets */,
-				99BEDCEF1FE8F7760066294D /* LaunchScreen.storyboard */,
-				99BEDCF21FE8F7760066294D /* Info.plist */,
-				99BEDCF31FE8F7760066294D /* main.m */,
 				9948B6D71FEA334200ABC54D /* MLSession.h */,
 				9948B6D81FEA334200ABC54D /* MLSession.m */,
 				9948B6DE1FEA547C00ABC54D /* MLResponse.h */,
@@ -245,6 +244,15 @@
 				9948B6E21FEA5E6E00ABC54D /* MLWebApiInvoker.m */,
 				99E71C621FEB5E7800374CB4 /* MLToast.h */,
 				99E71C631FEB5E7800374CB4 /* MLToast.m */,
+				99BEDCE41FE8F7760066294D /* AppDelegate.h */,
+				99BEDCE51FE8F7760066294D /* AppDelegate.m */,
+				99BEDCEA1FE8F7760066294D /* Main.storyboard */,
+				99BEDCED1FE8F7760066294D /* Assets.xcassets */,
+				99BEDCEF1FE8F7760066294D /* LaunchScreen.storyboard */,
+				99BEDCF21FE8F7760066294D /* Info.plist */,
+				99BEDCF31FE8F7760066294D /* main.m */,
+				99F350E51FEBF478002965C0 /* CodecCell.h */,
+				99F350E61FEBF478002965C0 /* CodecCell.m */,
 			);
 			path = MiniLive;
 			sourceTree = "<group>";
@@ -278,6 +286,8 @@
 				994834E01FE912D200EE1BD3 /* PrepareViewController.m */,
 				994834E21FE912DF00EE1BD3 /* LiveViewController.h */,
 				994834E31FE912DF00EE1BD3 /* LiveViewController.m */,
+				992C5F9E1FEBF85A00538DB8 /* SelectRoomViewController.h */,
+				992C5F9F1FEBF85A00538DB8 /* SelectRoomViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -415,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				992C5FA01FEBF85A00538DB8 /* SelectRoomViewController.m in Sources */,
 				9948B6D21FEA1A2000ABC54D /* UIProgressView+AFNetworking.m in Sources */,
 				9948B6D01FEA1A2000ABC54D /* UIButton+AFNetworking.m in Sources */,
 				9948B6D31FEA1A2000ABC54D /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -422,6 +433,7 @@
 				9948B6B31FEA19F500ABC54D /* AFSecurityPolicy.m in Sources */,
 				994834DE1FE9108400EE1BD3 /* LoginViewController.m in Sources */,
 				994834E11FE912D200EE1BD3 /* PrepareViewController.m in Sources */,
+				99F350E71FEBF478002965C0 /* CodecCell.m in Sources */,
 				9948B6B51FEA19F500ABC54D /* AFURLResponseSerialization.m in Sources */,
 				9948B6E31FEA5E6E00ABC54D /* MLWebApiInvoker.m in Sources */,
 				99BEDD191FE8F8400066294D /* MyNavigationController.m in Sources */,
