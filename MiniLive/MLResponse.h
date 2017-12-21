@@ -35,7 +35,7 @@
 
 // GetRoomList Response
 @interface MLGetRoomListResponse : MLResponse
-@property (nonatomic, strong) NSMutableArray* roomList;
+@property (nonatomic, strong) NSArray* roomList;
 
 //-(BOOL) parseDict:(NSDictionary *)dict;
 @end

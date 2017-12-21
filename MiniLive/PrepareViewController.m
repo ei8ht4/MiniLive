@@ -24,13 +24,22 @@
     MLWebApiInvoker *api = [MLWebApiInvoker shareInstance];
     MLSession   *session = [MLSession shareInstance];
     
-    NSString *roomID = [MLSession shareInstance].roomID;
-    if(roomID && roomID.length > 0)
-    {
-        [api getRoom:roomID token:session.token finish:^(BOOL success, MLResponse *response, NSString *error) {
-            //
-        }];
-    }
+    NSString *roomID = nil;// [MLSession shareInstance].roomID;
+//    if(roomID && roomID.length > 0)
+//    {
+//        [api getRoom:roomID token:session.token finish:^(BOOL success, MLResponse *response, NSString *error) {
+//            //
+//        }];
+//    }
+//    else
+//    {
+//        [api getRoomList:session.token finish:^(BOOL success, MLResponse *response, NSString *error) {
+//            NSLog(@"%@", response);
+//        }];
+//    }
+    [api alive:@"ACA0ADAC-F527-48B6-B5F6-78083EEC3128" token:session.token finish:^(BOOL success, MLResponse *response, NSString *error) {
+        NSLog(@"%@", response);
+    }];
     //]]
 }
 

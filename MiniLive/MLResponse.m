@@ -18,6 +18,21 @@ if(!self.status)            \
     return YES;             \
 }
 
+// Room Info
+@implementation MLRoom
+-(BOOL) isValid
+{
+    if(self.id.length == 0)
+        return NO;
+    if(self.name.length == 0)
+        return NO;
+    if(self.liveUrl.length == 0)
+        return NO;
+    
+    return YES;
+}
+@end
+
 // Response Base
 @implementation MLResponse
 
@@ -72,12 +87,59 @@ if(!self.status)            \
 
 -(BOOL) parseDict:(NSDictionary *)dict
 {
-    [self.roomList removeAllObjects];
-    
+    self.roomList = nil;
     PRE_PARSE
     
-    // TODO: 继续解析数组
-    return NO;
+    NSArray *roomList = dict[@"RoomList"];
+    if(!roomList)
+    {
+        self.lastError = @"未找到room列表";
+        return NO;
+    }
+    
+    if(roomList.count == 0)
+    {
+        self.lastError = @"room列表为空";
+        return NO;
+    }
+    
+    NSMutableArray *roomArr = [[NSMutableArray alloc] init];
+    
+    for(NSDictionary *roomObj in roomList)
+    {
+        id idVal = roomObj[@"Id"];
+        id nameVal = roomObj[@"Name"];
+        id liveUrlVal = roomObj[@"LiveUrl"];
+        
+        if(idVal && nameVal && liveUrlVal)
+        {
+            MLRoom *room = [[MLRoom alloc] init];
+            
+            room.id = idVal;
+            room.name = nameVal;
+            room.liveUrl = liveUrlVal;
+            
+            if([room isValid])
+            {
+                [roomArr addObject:room];
+            }
+            else
+            {
+                room = nil;
+            }
+        }
+    }
+    
+    if(roomArr.count == 0)
+    {
+        self.lastError = @"没有找到有效的房间";
+        roomArr = nil;
+        return NO;
+    }
+    
+    self.roomList = roomArr;
+    
+    return YES;
 }
 
 @end
@@ -87,10 +149,41 @@ if(!self.status)            \
 
 -(BOOL) parseDict:(NSDictionary *)dict
 {
+    self.room = nil;
     PRE_PARSE
     
-    // TODO: 继续解析对象
-    return NO;
+    NSDictionary *roomObj = dict[@"Room"];
+    if(!roomObj)
+    {
+        self.lastError = @"未找到room节点";
+        return NO;
+    }
+    
+    id idVal = roomObj[@"Id"];
+    id nameVal = roomObj[@"Name"];
+    id liveUrlVal = roomObj[@"LiveUrl"];
+    
+    if(!idVal || !nameVal || !liveUrlVal)
+    {
+        self.lastError = @"未找到id,name或liveurl";
+        return NO;
+    }
+    
+    MLRoom *room = [[MLRoom alloc] init];
+    
+    room.id = idVal;
+    room.name = nameVal;
+    room.liveUrl = liveUrlVal;
+    
+    if(![room isValid])
+    {
+        self.lastError = @"房间信息无效";
+        return NO;
+    }
+    
+    self.room = room;
+    
+    return YES;
 }
 
 @end
@@ -108,11 +201,11 @@ if(!self.status)            \
     id actionVal = dict[@"Action"];
     id reasonVal = dict[@"Reason"];
     
-    if(actionVal)
+    if([actionVal isKindOfClass:[NSString class]])
     {
         self.action = actionVal;
     }
-    if(reasonVal)
+    if([reasonVal isKindOfClass:[NSString class]])
     {
         self.reason = reasonVal;
     }
