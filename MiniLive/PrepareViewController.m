@@ -9,8 +9,10 @@
 #import "PrepareViewController.h"
 #import "MLWebApiInvoker.h"
 #import "MLSession.h"
+#import "LiveViewController.h"
 
-@interface PrepareViewController ()
+@interface PrepareViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -40,6 +42,85 @@
 - (IBAction)btnLivePressed:(UIButton *)sender {
     UIViewController *liveVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LiveViewController"];
     [self presentViewController:liveVC animated:YES completion:nil];
+}
+
+#pragma mark TableViewDataSource
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 4;
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *title = nil;
+    switch(section)
+    {
+        case 0:
+            title = @"直播间";
+            break;
+        case 1:
+            title = @"视频参数";
+            break;
+        case 2:
+            title = @"音频参数";
+            break;
+        case 3:
+            title = @"其它";
+            break;
+        default:
+            break;
+    }
+    return title;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger count = 0;
+    switch(section)
+    {
+        case 0:
+            count = 1;
+            break;
+        case 1:
+            count = 3;
+            break;
+        case 2:
+            count = 2;
+            break;
+        case 3:
+            count = 1;
+            break;
+        default:
+            break;
+    }
+    return count;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = nil;
+    if(indexPath.section == 0)
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"roomCell" forIndexPath:indexPath];
+        
+        cell.textLabel.text = @"哇哈哈";
+    }
+    else
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"codecCell" forIndexPath:indexPath];
+    }
+    
+    return cell;
+}
+
+#pragma mark TableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0 && indexPath.row == 0)
+    {
+        [self performSegueWithIdentifier:@"prepare2selectroom" sender:self];
+    }
 }
 
 
