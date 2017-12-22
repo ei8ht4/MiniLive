@@ -15,6 +15,11 @@
 @property (nonatomic, strong) NSString* userID;
 @property (nonatomic, strong) NSString* roomID;
 
+@property (nonatomic, strong) NSArray*  roomList;
+
+@property (nonatomic, readonly) NSString* roomName;
+@property (nonatomic, readonly) NSString* roomUrl;
+
 -(void) clear;
 @end
 
