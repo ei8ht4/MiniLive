@@ -8,7 +8,10 @@
 
 #import "PrepareViewController.h"
 #import "MLWebApiInvoker.h"
+#import "COMMON_MACRO.h"
 #import "MLSession.h"
+#import "MLResponse.h"
+#import "MLToast.h"
 #import "LiveViewController.h"
 
 @interface PrepareViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -21,6 +24,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    MLWebApiInvoker *api = [MLWebApiInvoker shareInstance];
+    [api getRoomList:[MLSession shareInstance].token
+              finish:^(BOOL success, MLResponse *response, NSString *error) {
+                    WEAK_SELF;
+                    if(success)
+                    {
+                        if(response.status)
+                        {
+                            __weak MLGetRoomListResponse *roomlistResponse = (MLGetRoomListResponse*)response;
+                            [MLSession shareInstance].roomList = [roomlistResponse.roomList copy];
+                        }
+                        else
+                        {
+                            [MLToast toast:response.message withTitle:@"获取直播间失败" viewController:weakSelf];
+                        }
+                    }
+                    else
+                    {
+                        [MLToast toast:error withTitle:@"获取直播间请求失败" viewController:weakSelf];
+                    }
+    }];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent

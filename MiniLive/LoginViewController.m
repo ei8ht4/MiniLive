@@ -77,21 +77,19 @@
     [api login:userID
       password:passwd
         finish:^(BOOL success, MLResponse *response, NSString *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
             WEAK_SELF;
             
             [weakSelf.btnLogin setTitle:@"登录" forState:UIControlStateNormal];
             
-            [[MLSession shareInstance] clear];
-            
             if(success)
             {
-                if(response.status)  // 登录成功
+                if(response.status)
                 {
-                    __weak MLLoginResponse *loginResponse = (MLLoginResponse*)response;
-                    [MLSession shareInstance].token = loginResponse.token;
-                    [MLSession shareInstance].userID = loginResponse.id;
-                    [MLSession shareInstance].roomID = loginResponse.roomID;
+                    MLLoginResponse *loginResponse = (MLLoginResponse*)response;
+                    __weak MLSession *session = [MLSession shareInstance];
+                    session.token = loginResponse.token;
+                    session.userID = loginResponse.id;
+                    session.roomID = loginResponse.roomID;
                     
                     [weakSelf performSegueWithIdentifier:@"login2prepare" sender:weakSelf];
                 }
@@ -104,7 +102,6 @@
             {
                 [MLToast toast:error withTitle:@"登录请求失败" viewController:weakSelf];
             }
-        });
     }];
 }
 
