@@ -42,7 +42,19 @@ enum CellSection
                         if(response.status)
                         {
                             __weak MLGetRoomListResponse *roomlistResponse = (MLGetRoomListResponse*)response;
-                            [MLSession shareInstance].roomList = [roomlistResponse.roomList copy];
+                            __weak MLSession *session = [MLSession shareInstance];
+                            
+                            session.roomList = [roomlistResponse.roomList copy];
+                            
+                            //[[ 刷新直播间
+                            if(session.roomID.length == 0 && session.roomList.count > 0)
+                            {
+                                session.roomID = ((MLRoom*)session.roomList[0]).id;
+                            }
+                            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                            NSArray *paths = [NSArray arrayWithObject:indexPath];
+                            [weakSelf.tableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationNone];
+                            //]]
                         }
                         else
                         {
@@ -54,6 +66,13 @@ enum CellSection
                         [MLToast toast:error withTitle:@"获取直播间请求失败" viewController:weakSelf];
                     }
     }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSArray *paths = [NSArray arrayWithObject:indexPath];
+    [self.tableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent
@@ -137,7 +156,7 @@ enum CellSection
     {
         cell = [tableView dequeueReusableCellWithIdentifier:@"roomCell" forIndexPath:indexPath];
         
-        cell.textLabel.text = @"哇哈哈";
+        cell.textLabel.text = [MLSession shareInstance].roomName;
     }
     else
     {
