@@ -19,6 +19,14 @@
 
 @end
 
+enum CellSection
+{
+    SECTION_ROOM    = 0,
+    SECTION_VIDEO,
+    SECTION_AUDIO,
+    SECTION_OTHER,
+};
+
 @implementation PrepareViewController
 
 - (void)viewDidLoad {
@@ -81,16 +89,16 @@
     NSString *title = nil;
     switch(section)
     {
-        case 0:
+        case SECTION_ROOM:
             title = @"直播间";
             break;
-        case 1:
+        case SECTION_VIDEO:
             title = @"视频参数";
             break;
-        case 2:
+        case SECTION_AUDIO:
             title = @"音频参数";
             break;
-        case 3:
+        case SECTION_OTHER:
             title = @"其它";
             break;
         default:
@@ -104,16 +112,16 @@
     NSInteger count = 0;
     switch(section)
     {
-        case 0:
+        case SECTION_ROOM:         // 直播间
             count = 1;
             break;
-        case 1:
+        case SECTION_VIDEO:
             count = 3;
             break;
-        case 2:
+        case SECTION_AUDIO:
             count = 2;
             break;
-        case 3:
+        case SECTION_OTHER:
             count = 1;
             break;
         default:
@@ -147,7 +155,6 @@
         [self performSegueWithIdentifier:@"prepare2selectroom" sender:self];
     }
 }
-
 
 /*
 #pragma mark - Navigation

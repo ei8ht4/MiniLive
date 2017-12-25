@@ -7,10 +7,12 @@
 //
 
 #import "SelectRoomViewController.h"
+#import "MLSession.h"
+#import "MLResponse.h"
 
 @interface SelectRoomViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (weak, nonatomic) NSIndexPath *lastIndexPath;
 @end
 
 @implementation SelectRoomViewController
@@ -28,16 +30,45 @@
 #pragma mark Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    if(section == 0)
+        return [MLSession shareInstance].roomList.count;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    MLRoom *room = [MLSession shareInstance].roomList[indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = room.name;
+    
+    if([room.id isEqualToString:[MLSession shareInstance].roomID])
+    {
+        self.lastIndexPath = indexPath;
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    return cell;
 }
 
 #pragma mark Table view delegate
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger newRow = indexPath.row;
+    
+    NSInteger oldRow = (self.lastIndexPath != nil) ? self.lastIndexPath.row : newRow;
+    
+    if(newRow != oldRow)
+    {
+        UITableViewCell *newcell = [tableView cellForRowAtIndexPath:indexPath];
+        newcell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
+        UITableViewCell *oldcell = [tableView cellForRowAtIndexPath:self.lastIndexPath];
+        oldcell.accessoryType = UITableViewCellAccessoryNone;
+        
+        __weak MLSession *session = [MLSession shareInstance];
+        session.roomID = ((MLRoom*)session.roomList[indexPath.row]).id;
+        self.lastIndexPath = indexPath;
+    }
+}
 
 /*
 #pragma mark - Navigation
