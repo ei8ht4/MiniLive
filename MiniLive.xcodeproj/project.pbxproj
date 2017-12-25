@@ -29,6 +29,7 @@
 		9948B6D91FEA334200ABC54D /* MLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 9948B6D81FEA334200ABC54D /* MLSession.m */; };
 		9948B6E01FEA547C00ABC54D /* MLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9948B6DF1FEA547C00ABC54D /* MLResponse.m */; };
 		9948B6E31FEA5E6E00ABC54D /* MLWebApiInvoker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9948B6E21FEA5E6E00ABC54D /* MLWebApiInvoker.m */; };
+		99A7A9AE1FF0E3BC00EFDF5B /* MLParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A7A9AD1FF0E3BC00EFDF5B /* MLParameters.m */; };
 		99BEDCE61FE8F7760066294D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEDCE51FE8F7760066294D /* AppDelegate.m */; };
 		99BEDCEC1FE8F7760066294D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99BEDCEA1FE8F7760066294D /* Main.storyboard */; };
 		99BEDCEE1FE8F7760066294D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99BEDCED1FE8F7760066294D /* Assets.xcassets */; };
@@ -107,6 +108,8 @@
 		9948B6DF1FEA547C00ABC54D /* MLResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLResponse.m; sourceTree = "<group>"; };
 		9948B6E11FEA5E6E00ABC54D /* MLWebApiInvoker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLWebApiInvoker.h; sourceTree = "<group>"; };
 		9948B6E21FEA5E6E00ABC54D /* MLWebApiInvoker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLWebApiInvoker.m; sourceTree = "<group>"; };
+		99A7A9AC1FF0E3BC00EFDF5B /* MLParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLParameters.h; sourceTree = "<group>"; };
+		99A7A9AD1FF0E3BC00EFDF5B /* MLParameters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLParameters.m; sourceTree = "<group>"; };
 		99BEDCE11FE8F7760066294D /* MiniLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99BEDCE41FE8F7760066294D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		99BEDCE51FE8F7760066294D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 				9948B6E21FEA5E6E00ABC54D /* MLWebApiInvoker.m */,
 				99E71C621FEB5E7800374CB4 /* MLToast.h */,
 				99E71C631FEB5E7800374CB4 /* MLToast.m */,
+				99A7A9AC1FF0E3BC00EFDF5B /* MLParameters.h */,
+				99A7A9AD1FF0E3BC00EFDF5B /* MLParameters.m */,
 				99BEDCE41FE8F7760066294D /* AppDelegate.h */,
 				99BEDCE51FE8F7760066294D /* AppDelegate.m */,
 				99BEDCEA1FE8F7760066294D /* Main.storyboard */,
@@ -439,6 +444,7 @@
 				99BEDD191FE8F8400066294D /* MyNavigationController.m in Sources */,
 				9948B6D11FEA1A2000ABC54D /* UIImageView+AFNetworking.m in Sources */,
 				99BEDCF41FE8F7760066294D /* main.m in Sources */,
+				99A7A9AE1FF0E3BC00EFDF5B /* MLParameters.m in Sources */,
 				9948B6D91FEA334200ABC54D /* MLSession.m in Sources */,
 				9948B6B11FEA19F500ABC54D /* AFHTTPSessionManager.m in Sources */,
 				9948B6CC1FEA1A2000ABC54D /* AFAutoPurgingImageCache.m in Sources */,

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class MLParameter;
+
 @interface CodecCell : UITableViewCell
 
+-(void) updateContentWithParameter:(MLParameter*)paramter;
 @end

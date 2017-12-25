@@ -12,6 +12,8 @@
 #import "MLSession.h"
 #import "MLResponse.h"
 #import "MLToast.h"
+#import "MLParameters.h"
+#import "CodecCell.h"
 #import "LiveViewController.h"
 
 @interface PrepareViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -152,7 +154,7 @@ enum CellSection
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = nil;
-    if(indexPath.section == 0)
+    if(indexPath.section == SECTION_ROOM)
     {
         cell = [tableView dequeueReusableCellWithIdentifier:@"roomCell" forIndexPath:indexPath];
         
@@ -160,7 +162,61 @@ enum CellSection
     }
     else
     {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"codecCell" forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"paramCell" forIndexPath:indexPath];
+        
+        CodecCell *codecCell = (CodecCell*)cell;
+        
+        __weak MLParameter *parameter = nil;
+        __weak MLParameters *parameters = [MLParameters shareInstance];
+        
+        switch(indexPath.section)
+        {
+            case SECTION_VIDEO:
+            {
+                switch(indexPath.row)
+                {
+                    case 0:
+                        parameter = parameters.videoResolution;
+                        break;
+                    case 1:
+                        parameter = parameters.videoBitrate;
+                        break;
+                    case 2:
+                        parameter = parameters.videoFrameRate;
+                        break;
+                    default:
+                        break;
+                }
+            } break;
+            case SECTION_AUDIO:
+            {
+                switch(indexPath.row)
+                {
+                    case 0:
+                        parameter = parameters.audioSampleRate;
+                        break;
+                    case 1:
+                        parameter = parameters.audioBitrate;
+                        break;
+                    default:
+                        break;
+                        
+                }
+            } break;
+            case SECTION_OTHER:
+            {
+                switch(indexPath.row)
+                {
+                    case 0:
+                        parameter = parameters.camera;
+                        break;
+                    default:
+                        break;
+                }
+            } break;
+        }
+        
+        [codecCell updateContentWithParameter:parameter];
     }
     
     return cell;
